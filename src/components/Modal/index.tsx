@@ -1,34 +1,18 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import React from 'react';
+import { Button } from 'antd';
 
 type ModalProps ={
-    children: string;
+    
     title: string;
+    handleLogin : ()=>void;
 };
-const ModalComponent: React.FC<ModalProps>= ({children}:ModalProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
+const ModalComponent: React.FC<ModalProps>= ({title,handleLogin,}:ModalProps) => {
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
+      <Button size= "large"type="primary" onClick={handleLogin}>
+        {title}
       </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        {children
-        }
-      </Modal>
+      
     </>
   );
 };
