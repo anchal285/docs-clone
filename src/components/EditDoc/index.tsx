@@ -2,7 +2,7 @@ import React,{useState,useRef, useEffect} from "react";
 import './index.scss'
 import {BiArrowBack} from 'react-icons/bi'
 import ReactQuill from 'react-quill';
-
+import { toolbarOptions } from "../../Toolbar";
 export default function EditDoc({handleEdit}: functioninterface){
     let quillRef= useRef<any>(null);
     const [value, setValue] = useState('');
